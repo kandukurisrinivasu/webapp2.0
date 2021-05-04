@@ -1,0 +1,84 @@
+{% extends "layouts/base.html" %}
+{% load static %} <!-- New line -->
+{% block title %} Add Asset {% endblock %} 
+
+<!-- Specific Plugin CSS goes HERE -->
+{% block plugin_stylesheets %}{% endblock plugin_stylesheets %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+
+<div class="alert alert-primary text-center" role="alert">
+	<h1>ADD Hardware Data</h1>
+	</div>
+
+
+{% if submitted %}
+   <p class="success">
+     Your message was submitted successfully. Thank you.
+   </p>
+ 
+ {% else %}
+
+ <form action="" method="POST">
+    {% csrf_token %}
+	<div class="form-group row">
+	<label for="AssetNo" class="col-sm-2 col-form-label">Asset Number</label> 
+		{{form.AssetNo}}
+   </div>
+
+  <div class="form-group row">
+	<label for="Owner" class="col-sm-2 col-form-label">Asset Owner</label> 
+		{{form.Owner}}
+  </div>
+
+  <div class="form-group row">
+	<label for="AssetTypeModel" class="col-sm-2 col-form-label">Asset Type/Model</label> 
+		{{form.AssetTypeModel}}
+  </div>
+
+  <div class="form-group row">
+	<label for="Group" class="col-sm-2 col-form-label">Group</label> 
+		{{form.Group}}
+  </div>
+
+  <div class="form-group row">
+	<label for="TeamName" class="col-sm-2 col-form-label">Team</label> 
+		{{form.TeamName}}
+  </div>
+  <div class="form-group row">
+	<label for="ProductLine" class="col-sm-2 col-form-label">Product line</label> 
+		{{form.ProductLine}}
+  </div>
+
+  <div class="form-group row">
+	<label for="Remark" class="col-sm-2 col-form-label">Remark</label> 
+		{{form.Remark}}
+  </div>
+
+  	
+    
+<div class="text-right">
+<input type="submit" value=ADD>
+  </div>
+
+</form>
+
+{% endif %}
+
+
+
+
+
+
+
+{% endblock content %}
+
+<!-- Specific Plugin JS goes HERE  -->
+{% block plugin_javascripts %}{% endblock plugin_javascripts %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

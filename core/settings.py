@@ -22,6 +22,8 @@ DEBUG = config('DEBUG', default=False)
 # load production server from .env
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', config('SERVER', default='127.0.0.1')]
 
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -30,7 +32,12 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.utils.timezone',
+    #'django.contrib.auth.forms',
     'django.contrib.staticfiles',
+    'authentication',
+    'crispy_forms',
+    
     'app'  # Enable the inner app 
 ]
 
@@ -110,6 +117,13 @@ USE_L10N = True
 
 USE_TZ = True
 
+EMAIL_HOST = 'rb-owa.de.bosch.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'skd1cob'
+EMAIL_HOST_PASSWORD = 'sathwika_0620202'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'srinivasu.kandukuri@in.bosch.com'
+
 #############################################################
 # SRC: https://devcenter.heroku.com/articles/django-assets
 
@@ -124,5 +138,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'core/static'),
 )
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 #############################################################
 #############################################################

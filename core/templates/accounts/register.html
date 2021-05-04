@@ -16,14 +16,14 @@
         <div class="card col-lg-4 mx-auto">
           <div class="card-body px-5 py-5">
             <h3 class="card-title text-left mb-3">
-              <a href="https://appseed.us/admin-dashboards/django-dashboard-corona-dark">Django Corona Dark</a> - Sign UP
+              <h3>EBB Hardware Tracking Tool - Sign UP </h3> 
             </h3>
 
             <span class="mb-0 text-muted">
               {% if msg %}
                   {{ msg | safe }}
               {% else %}
-                  Add your credentials
+                  
               {% endif %} 
             </span>
             
@@ -38,7 +38,7 @@
                 {% csrf_token %}  
 
                 <div class="form-group">
-                  <label>Username</label>
+                  <label>User ID</label>
                   {{ form.username }}
                 </div>
                 <span class="text-error">{{ form.username.errors }}</span>
@@ -79,8 +79,8 @@
             {% endif %}
 
             <p class="sign-up">
-              &copy; <a target="_blank" rel="noreferrer noopener" href="https://www.bootstrapdash.com/?ref=appseed">Bootstrapdash</a> 
-              - coded by <a target="_blank" rel="noreferrer noopener" href="https://appseed.us">AppSeed</a>.
+              &copy; <a target="_blank" rel="noreferrer noopener" href="">EBB Hardware Tracking Tool</a> 
+              - coded by <a target="_blank" rel="noreferrer noopener" href="">RBEI/EBB</a>.
             </p>
 
           </div>

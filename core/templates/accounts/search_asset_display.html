@@ -1,0 +1,78 @@
+{% extends "layouts/base.html" %}
+{% load static %} <!-- New line -->
+{% block title %} Search Asset {% endblock %} 
+
+<!-- Specific Plugin CSS goes HERE -->
+{% block plugin_stylesheets %}{% endblock plugin_stylesheets %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+
+
+
+<div class="text-right">
+  
+  <div class="alert alert-primary text-center" role="alert">
+    <h1>Hardware Search Report</h1>
+    </div>
+
+    <div class="text-right">
+        <button>
+          <a id ="Export" href="{% url 'export' %}">Export </a>
+        </button>
+       </div>
+      
+       <div class="text-right">
+        <button>
+          <a id ="ExportPDF" href="{% url 'export_pdf' %}">Export PDF</a>
+        </button>
+       </div>
+      
+
+  
+  <form action="" method="POST">
+      {% csrf_token %}
+  <table class="table table-striped"> 
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Asset Number</th>
+          <th scope="col">Asset Owner</th>
+          <th scope="col">Asset Type/Model</th>
+          <th scope="col">Group</th>
+          <th scope="col">Team</th>
+          <th scope="col">Product line</th>
+          <th scope="col">Remark</th>
+          
+        </tr>
+      </thead>
+     
+      {% for data in all%}
+  
+      <tbody>
+          <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{data.AssetNo}}</td>
+            <td>{{data.Owner}}</td>
+            <td>{{data.AssetTypeModel}}</td>
+            <td>{{data.Group}}</td>
+            <td>{{data.TeamName}}</td>
+            <td>{{data.ProductLine}}</td>
+            <td>{{data.Remark}}</td>
+            
+          </tr>
+      </tbody> 
+  {% endfor %}
+  
+  </form>
+  
+{% endblock content %}
+
+<!-- Specific Plugin JS goes HERE  -->
+{% block plugin_javascripts %}{% endblock plugin_javascripts %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

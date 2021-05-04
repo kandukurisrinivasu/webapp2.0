@@ -1,0 +1,63 @@
+{% extends "layouts/base.html" %}
+{% load static %} <!-- New line -->
+{% block title %} Search Asset {% endblock %} 
+
+<!-- Specific Plugin CSS goes HERE -->
+{% block plugin_stylesheets %}{% endblock plugin_stylesheets %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+
+<div class="alert alert-primary text-center" role="alert">
+	<h1> Import Hardware Data</h1>
+	</div>
+
+<h1>Input xls format should be </h1>
+<img src="/static/assets/images/auth/example_xls_sheet.png"width="1000" height="200"/> 
+<!--img src="{% static '../account/images/auth/example_xls_sheet.png' %}" width="1000" height="200"/--> 
+
+
+
+
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file"
+               title="Upload excel file"
+               name="excel_file"
+               style="border: 1px solid black; padding: 5px;"
+               required="required">
+               
+        <p>
+        <input type="submit"
+               value="Upload"
+               style="border: 1px solid green; padding:5px; border-radius: 2px; cursor: pointer;">
+    </form>
+    <hr>
+    <table class="table table-striped"> 
+        
+        {% for row in excel_data%}
+        <tbody>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>
+                {% for cell in row %}
+                <td>{{cell}}</td>
+                {% endfor %}
+            </td>
+        </tbody>
+        {% endfor %}
+    </table>    
+
+    
+
+
+
+{% endblock content %}
+
+<!-- Specific Plugin JS goes HERE  -->
+{% block plugin_javascripts %}{% endblock plugin_javascripts %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

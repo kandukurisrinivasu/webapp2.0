@@ -1,0 +1,129 @@
+{% extends "layouts/base.html" %}
+{% load static %} <!-- New line -->
+{% block title %} Search Asset {% endblock %} 
+
+<!-- Specific Plugin CSS goes HERE -->
+{% block plugin_stylesheets %}{% endblock plugin_stylesheets %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+
+<div class="alert alert-primary text-center" role="alert">
+	
+  <h1>EBB Hardware Asset Tracking Tool</h1>
+  </div>
+  
+  {% if submitted %}
+     <p class="success">
+       Your message was submitted successfully. Thank you.
+     </p>
+   
+   {% else %}
+     <form action="" method="post" novalidate>
+    {% csrf_token %}
+  
+    <div class="form-group row">
+      
+      
+    <!--img src="{% static 'authenticate/images/asset.jpeg' %}" width="50" height="50"/--> 	
+    <label for="AssetNo" class="col-sm-3 col-form-label" style="font-size:30px;">Asset Number</label>
+    <input list="AssetNoID" name="AssetNo" value="{{AssetNo}}" style="font-size:30px;" placeholder="Enter AssetNo">
+      <datalist id="AssetNoID">
+        {% for data1 in data_a %}
+        <option>{{data1.AssetNo}}</option>
+        {% endfor %}
+      </datalist>
+     </div>
+  
+    <div class="form-group row">
+    <!--img src="{% static 'authenticate/images/user.png' %}" width="50" height="50"/--> 
+    <label for="Owner" class="col-sm-3 col-form-label" style="font-size:30px;">Asset Owner</label> 
+      <input list="OwnerID" name="Owner" value="{{Owner}}" style="font-size:30px;" placeholder="Enter Owner">
+      <datalist id="OwnerID">
+        {% for data1 in data_a %}
+        <option>{{data1.Owner}}</option>
+        {% endfor %}
+      </datalist>
+    </div>
+  
+    <div class="form-group row">
+    <!--img src="{% static 'authenticate/images/d1.jpg' %}" width="50" height="50"/--> 	
+    <label for="AssetTypeModel" class="col-sm-3 col-form-label" style="font-size:30px;">Asset Type/Model</label> 
+      
+      <input list="AssetTypeModelID" name="AssetTypeModel" value="{{AssetTypeModel}}"  style="font-size:30px;" placeholder="Enter AssetTypeModel">
+      <datalist id="AssetTypeModelID">
+        {% for data1 in data_a %}
+        <option>{{data1.AssetTypeModel}}</option>
+        {% endfor %}
+      </datalist>
+    </div>
+  
+    <div class="form-group row">
+    
+    <!--img src="{% static 'authenticate/images/g3.jpg' %}" width="50" height="50"/--> 
+    <label for="Group" class="col-sm-3 col-form-label" style="font-size:30px;" >Group</label> 
+      <input list="GroupID" name="Group" value="{{Group}}" style="font-size:30px;" placeholder="Enter Group">
+      <datalist id="GroupID">
+        {% for data1 in data_a %}
+        <option>{{data1.Group}}</option>
+        {% endfor %}
+      </datalist>
+    </div>
+  
+    <div class="form-group row">
+    <!--img src="{% static 'authenticate/images/team1.jpeg' %}" width="50" height="50"/--> 
+    <label for="TeamName" class="col-sm-3 col-form-label" style="font-size:30px;"> Team</label> 
+      <input list="TeamNameID" name="TeamName" value="{{TeamName}}" style="font-size:30px;" placeholder="Enter TeamName">
+      <datalist id="TeamNameID">
+        {% for data1 in data_a %}
+        <option>{{data1.TeamName}}</option>
+        {% endfor %}
+      </datalist>
+    </div>
+    <div class="form-group row">
+    <!--img src="{% static 'authenticate/images/p1.jpg' %}" width="50" height="50"/--> 
+    <label for="ProductLine" class="col-sm-3 col-form-label" style="font-size:30px;">Product line</label> 
+      
+  
+      <input list="ProductLineID" name="ProductLine" value="{{ProductLine}}" style="font-size:30px;" placeholder="Enter ProductLine">
+      <datalist id="ProductLineID">
+        {% for data1 in data_a %}
+        <option>{{data1.ProductLine}}</option>
+        {% endfor %}
+      </datalist>
+    </div>
+  
+    <div class="form-group row">
+    <!--img src="{% static 'authenticate/images/remark.jpeg' %}" width="50" height="50"/--> 
+    <label for="Remark" class="col-sm-3 col-form-label" style="font-size:30px;">Remark</label> 
+      
+  
+      <input list="RemarkID" name="Remark" value="{{Remark}}" style="font-size:30px;" placeholder="Enter Remark">
+      <datalist id="RemarkID">
+        {% for data1 in data_a %}
+        <option>{{data1.Owner}}</option>
+        {% endfor %}
+      </datalist>
+    </div>
+  
+      
+  <div class="text-right ">
+  <input type="submit" value=Search>
+    </div>
+    
+     
+   {% endif %}
+  
+
+
+  
+{% endblock content %}
+
+<!-- Specific Plugin JS goes HERE  -->
+{% block plugin_javascripts %}{% endblock plugin_javascripts %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

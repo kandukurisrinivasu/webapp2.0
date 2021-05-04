@@ -1,0 +1,85 @@
+{% extends "layouts/base.html" %}
+{% block title %} Blank Page {% endblock %} 
+<!-- Specific Plugin CSS goes HERE -->
+{% block plugin_stylesheets %}{% endblock plugin_stylesheets %}
+
+<!-- Specific CSS goes HERE -->
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css">
+<script src="/admin/jsi18n/"></script>
+<script src="/static/admin/js/calendar.js"></script>
+<script src="/static/admin/js/jquery.init.js"></script>
+<script src="/static/admin/js/admin/DateTimeShortcuts.js"></script>
+<script src="/static/admin/js/core.js"></script>
+{% endblock stylesheets %}
+
+{% block content %}
+
+<form method="post" class="post-form" action="">
+
+  {% csrf_token %}  
+
+
+<div class="form-group row ">
+  <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Title</label>
+  <div class="col-sm-9">
+  {{ form.title }}
+  </div>
+  <span class="text-error">{{ form.title.errors }}</span>
+</div>
+
+<div class="form-group row ">
+  <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Description</label>
+  <div class="col-sm-9">
+  {{ form.description }}
+  </div>
+  <span class="text-error">{{ form.description.errors }}</span>
+</div>
+
+
+<div class="form-group row ">
+  <label for="exampleInputEmail2" class="col-sm-3 col-form-label">start_date</label>
+  <div class="col-sm-9 ">
+  {{ form.start_date }}
+  </div>
+  <span class="text-error">{{ form.start_date.errors }}</span>
+</div>
+
+<div class="form-group row ">
+  <label for="exampleInputEmail2" class="col-sm-3 col-form-label">start_time</label>
+  <div class="col-sm-9"  >
+  {{ form.start_time }}
+  </div>
+  <span class="text-error">{{ form.start_time.errors }}</span>
+</div>
+
+<div class="form-group row ">
+  <label for="exampleInputEmail2" class="col-sm-3 col-form-label">end_date</label>
+  <div class="col-sm-9 ">
+  {{ form.end_date }}
+  </div>
+  <span class="text-error">{{ form.end_date.errors }}</span>
+</div>
+
+<div class="form-group row ">
+  <label for="exampleInputEmail2" class="col-sm-3 col-form-label">end_time</label>
+  <div class="col-sm-9"  >
+  {{ form.end_time }}
+  </div>
+  <span class="text-error">{{ form.end_time.errors }}</span>
+</div>
+
+<div class="text-right ">
+  <input type="submit" name=submit value=submit>
+    </div>
+
+  </form>
+  
+{% endblock content %}
+
+<!-- Specific Plugin JS goes HERE  -->
+{% block plugin_javascripts %}{% endblock plugin_javascripts %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
